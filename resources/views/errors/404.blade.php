@@ -8,10 +8,10 @@
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="{!! asset(../newdash/assets/images/favicon.png') !!}"
+      href="{!! asset('../newdash/assets/images/favicon.png') !!}"
     />
     <!-- Custom CSS -->
-    <link href="{!! asset(../newdash/dist/css/style.min.css') !!}" rel="stylesheet" />
+    <link href="{!! asset('../newdash/dist/css/style.min.css') !!}" rel="stylesheet" />
   
   </head>
 
@@ -34,13 +34,13 @@
       <!-- ============================================================== -->
       <div class="error-box">
         <div class="error-body text-center">
-          <h1 class="error-title text-danger">405</h1>
+          <h1 class="error-title text-danger">404</h1>
           <h3 class="text-uppercase error-subtitle">PAGE NOT FOUND !</h3>
           <p class="text-muted mt-4 mb-4">
             YOU SEEM TO BE TRYING TO FIND HIS WAY HOME
           </p>
           <a
-            href="index.html"
+            href="/"
             class="
               btn btn-danger btn-rounded
               waves-effect waves-light
@@ -70,9 +70,9 @@
     <!-- ============================================================== -->
     <!-- All Required js -->
     <!-- ============================================================== -->
-    <script src="{!! asset(../newdash/assets/libs/jquery/dist/jquery.min.js') !!}"></script>
+    <script src="{!! asset('../newdash/assets/libs/jquery/dist/jquery.min.js') !!}"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="{!! asset(../newdash/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') !!}"></script>
+    <script src="{!! asset('../newdash/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') !!}"></script>
     <!-- ============================================================== -->
     <!-- This page plugin js -->
     <!-- ============================================================== -->
