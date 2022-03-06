@@ -26,7 +26,7 @@
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="widgets.html"
+                  href="elastic-search"
                   aria-expanded="false"
                   ><i class="mdi mdi-move-resize-variant"></i
                   ><span class="hide-menu">Elastic Search</span></a
