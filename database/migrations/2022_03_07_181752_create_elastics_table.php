@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDemosTable extends Migration
+class CreateElasticsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateDemosTable extends Migration
      */
     public function up()
     {
-        Schema::create('demos', function (Blueprint $table) {
+        Schema::create('elastics', function (Blueprint $table) {
             $table->id();
             $table->string('heading');
-            $table->string('message');
+            $table->string('content');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateDemosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('demos');
+        Schema::dropIfExists('elastics');
     }
 }

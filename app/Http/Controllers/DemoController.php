@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Demo;
 use Illuminate\Http\Request;
+use App\Models\Elastic;
 class DemoController extends Controller
 {
 
@@ -51,5 +52,29 @@ class DemoController extends Controller
         return redirect('/show-docker-list');
 
         
+    }
+
+    //********************* function for elastic serach */
+
+    public function viewelastic()
+    {
+        return view('admin/add_elastic_content');
+    }
+
+    public function addelastic(Request $request){
+        $request->validate([
+            'heading'=>'required',
+        ]);
+        $Elastic = new Elastic;
+        $Elastic->heading = $request->heading;
+        $Elastic->content = $request->message;
+        $Elastic->save();
+        $request->session()->flash('msg','Added Successfully !');
+        return redirect('/add-elasticsearch-content');
+    }
+
+    public function showelasticlist(){
+        $elastic = Elastic::all();
+        return view('admin/list_elastic_content',compact('elastic'));
     }
 }

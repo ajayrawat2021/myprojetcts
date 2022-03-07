@@ -27,6 +27,13 @@ Route::post('/addDocker', [DemoController::class, 'addDocker']);
 Route::get('/show-docker-list', [DemoController::class, 'showDockerlist']);
 Route::get('/delete/{id}', [DemoController::class, 'delete']);
 
+//*********** for elastic Search */
+
+Route::get('/add-elasticsearch-content', [DemoController::class, 'viewelastic']);
+Route::post('/addelastic', [DemoController::class, 'addelastic']);
+Route::get('/show-elasticsearch-list', [DemoController::class, 'showelasticlist']);
+
+
 //***************** log OUT */
 Route::get('/logout',function(){
     session()->forget('username');

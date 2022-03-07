@@ -109,7 +109,7 @@
                   
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="#"
-                    ><i class="fa fa-power-off me-1 ms-1"></i>Welcome &nbsp; {{session('username')}}</a
+                    ><i class="fa fa-power-off me-1 ms-1"></i>Welcome &nbsp; <span style="color:green;">{{session('username')}}</span></a
                   >
 
                   <a class="dropdown-item" href="logout"
