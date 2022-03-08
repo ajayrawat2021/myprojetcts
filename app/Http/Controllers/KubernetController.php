@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin_login;
+use App\Models\Kubernet;
 use Illuminate\Http\Request;
 
-class AdminLoginController extends Controller
+class KubernetController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,8 @@ class AdminLoginController extends Controller
      */
     public function index()
     {
-        return view('admin/admin_login');
+        return view('admin/add_kubernet_content');
     }
-
-     
 
     /**
      * Show the form for creating a new resource.
@@ -26,23 +24,16 @@ class AdminLoginController extends Controller
      */
     public function create(Request $request)
     {
-        $username = $request->post('username');
-        $password = $request->post('password');
-        
-        $result = Admin_login::where(['username'=>$username,'password'=>$password])->get();
-        if(isset($result['0']->id)){
-
-            $request->session()->put('username',$result['0']->username);
-            return redirect('/dashboard');
-
-        }
-        else{
-            $request->session()->flash('error','Incorrect Username & password');
-            return redirect('/admin-login');
-
-        }
+        $request->validate([
+            'heading'=>'required',
+        ]);
+        $Kubernet = new Kubernet;
+        $Kubernet->heading = $request->heading;
+        $Kubernet->content = $request->message;
+        $Kubernet->save();
+        $request->session()->flash('msg','Added Successfully !');
+        return redirect('/add-kubernet-content');
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -50,29 +41,34 @@ class AdminLoginController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function showkubernetlist()
     {
-        //
+        $kubernets = Kubernet::all();
+        return view('admin/list_kubernet_content',compact('kubernets'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Admin_login  $admin_login
+     * @param  \App\Models\Kubernet  $kubernet
      * @return \Illuminate\Http\Response
      */
-    public function show(Admin_login $admin_login)
+    public function deleteKubernet($id)
     {
-        //
+
+        Kubernet::select('*')->where('id',$id)->delete();
+        return redirect('/show-kubernet-list');
+
+        
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Admin_login  $admin_login
+     * @param  \App\Models\Kubernet  $kubernet
      * @return \Illuminate\Http\Response
      */
-    public function edit(Admin_login $admin_login)
+    public function edit(Kubernet $kubernet)
     {
         //
     }
@@ -81,10 +77,10 @@ class AdminLoginController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Admin_login  $admin_login
+     * @param  \App\Models\Kubernet  $kubernet
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Admin_login $admin_login)
+    public function update(Request $request, Kubernet $kubernet)
     {
         //
     }
@@ -92,10 +88,10 @@ class AdminLoginController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Admin_login  $admin_login
+     * @param  \App\Models\Kubernet  $kubernet
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Admin_login $admin_login)
+    public function destroy(Kubernet $kubernet)
     {
         //
     }

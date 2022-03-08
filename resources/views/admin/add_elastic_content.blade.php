@@ -3,6 +3,7 @@
 @extends('admin/header')
 @section('title','Elasticsearch')
 
+@section('elastic','active')
 @section('home')
 
 <div class="page-breadcrumb">

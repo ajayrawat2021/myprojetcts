@@ -2,7 +2,14 @@
 @extends('admin/sidenav')
 @extends('admin/header')
 @section('title','Elastic List')
+@section('elastic','actives')
 
+<style>
+  .actives{
+    background-color: #27a9e3;
+    color:white;
+  }
+</style>
 @section('home')
 <div class="page-breadcrumb">
           <div class="row">
@@ -43,7 +50,7 @@
                         <tr>
                           <td>{{$data->heading}}</td>
                           <td>{!! $data->content !!} </td>
-                          <td><a href="/delete/{{$data->id}}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+                          <td><a href="/delete-elastic/{{$data->id}}"><button type="button" class="btn btn-danger">Delete</button></a></td>
                         </tr>
                         @endforeach
 

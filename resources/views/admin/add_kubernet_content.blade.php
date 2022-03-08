@@ -1,15 +1,14 @@
 @extends('admin/newdash')
 @extends('admin/sidenav')
 @extends('admin/header')
-@section('title','Docker')
-@section('docker','active')
-
+@section('title','Kubernet')
+@section('kubernets','active')
 @section('home')
 
 <div class="page-breadcrumb">
           <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-              <h4 class="page-title">Add Docker</h4>
+              <h4 class="page-title">Add Kubernet</h4>
               <div class="ms-auto text-end">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
@@ -25,11 +24,11 @@
         </div>
 
             <div class="card">
-                <form class="form-horizontal" action="/addDocker" method="post">
+                <form class="form-horizontal" action="/addkubernet" method="post">
                     @csrf
                   <div class="card-body">
                     
-                    <h4 class="card-title"><a href="/show-docker-list"><button type="button" class="btn btn-primary">
+                    <h4 class="card-title"><a href="/show-kubernet-list"><button type="button" class="btn btn-primary">
                         Show List
                       </button></a></h4>
                      <h4 style="color:green;"> {{session('msg')}}</h4>

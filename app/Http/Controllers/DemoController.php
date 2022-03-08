@@ -50,8 +50,6 @@ class DemoController extends Controller
     {
          Demo::select('*')->where('id',$id)->delete();
         return redirect('/show-docker-list');
-
-        
     }
 
     //********************* function for elastic serach */
@@ -76,5 +74,12 @@ class DemoController extends Controller
     public function showelasticlist(){
         $elastic = Elastic::all();
         return view('admin/list_elastic_content',compact('elastic'));
+    }
+
+    public function deleteelastic($id){
+
+        Elastic::select('*')->where('id',$id)->delete();
+        return redirect('/show-elasticsearch-list');
+
     }
 }
